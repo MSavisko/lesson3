@@ -24,6 +24,13 @@
 	if (!_deck) {
 		_deck = [[PlayingCardDeck alloc] init];
 	}
+    //Add new coinciding and unique Card
+    Card * coincidingCard = [[Card alloc]init];
+    coincidingCard.contents = @"K♥";
+    Card * uniqeCard = [[Card alloc]init];
+    uniqeCard.contents = @"someContent";
+    [_deck addCard:coincidingCard];
+    [_deck addCard:uniqeCard];
 	return _deck;
 }
 

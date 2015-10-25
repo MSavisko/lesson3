@@ -57,16 +57,18 @@
 
 -(int) match:(NSArray *)otherCards {
     int result = 0;
-    
+    //Cheking for object class Card
     for (id someCard in otherCards) {
         if ([someCard isKindOfClass:[Card class]]) {
             if ([[someCard contents] isEqualToString:self.contents]) {
                 result = 10;
             }
+        // Cheking for suit
         } else if ([someCard isKindOfClass:[PlayingCard class]]) {
             if ([self.suit isEqualToString:[someCard suit]]) {
                 result = result + 1;
             }
+            // Cheking for rank
             if (self.rank == [someCard rank]) {
                 result = result + 4;
             }

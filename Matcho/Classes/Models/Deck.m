@@ -39,12 +39,14 @@
 }
 
 - (Card *)drawRandomCard {
+    //Checking for empty card deck
     if (![self.cards count]){
         
         return nil;
     }
 	NSInteger randomCard = arc4random() % [self.cards count];
     Card * card = self.cards[randomCard];
+    // Remove from deck
     [self.cards removeObject:card];
     return card;
     
