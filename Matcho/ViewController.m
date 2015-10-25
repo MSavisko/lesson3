@@ -15,11 +15,17 @@
 @property (nonatomic, strong) PlayingCardDeck *deck;
 
 @property (weak, nonatomic) IBOutlet UIButton *cardButton;
-@property (weak, nonatomic) IBOutlet UIButton *cardLogButton;
+@property (weak, nonatomic) IBOutlet UILabel *cardLogButton;
+@property (nonatomic) NSInteger flipCount;
 
 @end
 
 @implementation ViewController
+
+- (void) setFlipCount:(NSInteger)flipCount {
+    _flipCount = flipCount;
+    self.cardLogButton.text = [NSString stringWithFormat:@"Flips: %ld", (long)self.flipCount];
+}
 
 - (PlayingCardDeck *)deck {
 	if (!_deck) {
@@ -65,6 +71,7 @@
             }
         }
     }
+    self.flipCount++;
 }
 
 - (IBAction)cardLogButtonTapped:(UIButton*)sender {
