@@ -15,6 +15,7 @@
 @property (nonatomic, strong) PlayingCardDeck *deck;
 
 @property (weak, nonatomic) IBOutlet UIButton *cardButton;
+@property (weak, nonatomic) IBOutlet UIButton *cardLogButton;
 
 @end
 
@@ -63,6 +64,12 @@
                              forState:UIControlStateNormal];
             }
         }
+    }
+}
+
+- (IBAction)cardLogButtonTapped:(UIButton*)sender {
+    if (![sender.currentTitle length]) {
+        NSLog(@"Card was flipped");
     }
 }
 

@@ -41,11 +41,14 @@
 - (Card *)drawRandomCard {
     //Checking for empty card deck
     if (![self.cards count]){
-        
+        //Log when card deck is empty
+        NSLog(@"Deck is Empty");
         return nil;
     }
 	NSInteger randomCard = arc4random() % [self.cards count];
     Card * card = self.cards[randomCard];
+    //Log what card are drawed 
+    NSLog(@"Drawed playing card %@", card.contents);
     // Remove from deck
     [self.cards removeObject:card];
     return card;
