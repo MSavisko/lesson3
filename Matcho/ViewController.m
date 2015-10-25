@@ -43,10 +43,14 @@
 						  forState:UIControlStateNormal];
 	} else {
 		Card *card = [self.deck drawRandomCard];
-		[sender setTitle:card.contents
-				forState:UIControlStateNormal];
-		[sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
-						  forState:UIControlStateNormal];
+        //Not flip if card deck is empty
+        if (card != nil) {
+            [sender setTitle:card.contents
+                    forState:UIControlStateNormal];
+            [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
+                              forState:UIControlStateNormal];
+        }
+		
 	}
 }
 
