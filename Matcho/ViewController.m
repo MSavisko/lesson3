@@ -49,9 +49,21 @@
                     forState:UIControlStateNormal];
             [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
                               forState:UIControlStateNormal];
+            //Change text of card
+            if ([card.contents rangeOfString:@"♥"].location != NSNotFound || [card.contents rangeOfString:@"♦"].location != NSNotFound) {
+                [sender setTitleColor: [UIColor redColor]
+                             forState:UIControlStateNormal];
+            }
+            else if ([card.contents rangeOfString:@"♣"].location != NSNotFound || [card.contents rangeOfString:@"♠"].location != NSNotFound) {
+                [sender setTitleColor: [UIColor blackColor]
+                             forState:UIControlStateNormal];
+            }
+            else {
+                [sender setTitleColor: [UIColor grayColor]
+                             forState:UIControlStateNormal];
+            }
         }
-		
-	}
+    }
 }
 
 @end
