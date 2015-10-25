@@ -14,6 +14,7 @@
 @property (nonatomic) NSUInteger rank;
 
 -(instancetype) initWithSuit:(NSString *)suit andRank:(NSInteger)rank;
+-(int) match:(NSArray *)otherCards;
 
 + (NSArray *)suits;
 + (NSUInteger)maxRank;

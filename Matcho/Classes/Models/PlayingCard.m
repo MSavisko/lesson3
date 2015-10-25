@@ -56,18 +56,23 @@
 
 
 -(int) match:(NSArray *)otherCards {
-	PlayingCard *card = [otherCards firstObject];
-	
-	if ([self.suit isEqualToString:card.suit]) {
-		return 1;
-	}
-	
-	if (self.rank == card.rank) {
-		return 4;
-	}
-	
-	return 0;
+    int result = 0;
+    
+    for (id someCard in otherCards) {
+        if ([someCard isKindOfClass:[Card class]]) {
+            if ([[someCard contents] isEqualToString:self.contents]) {
+                result = 10;
+            }
+        } else if ([someCard isKindOfClass:[PlayingCard class]]) {
+            if ([self.suit isEqualToString:[someCard suit]]) {
+                result = result + 1;
+            }
+            if (self.rank == [someCard rank]) {
+                result = result + 4;
+            }
+        }
+    }
+    return result;
 }
-
 
 @end
